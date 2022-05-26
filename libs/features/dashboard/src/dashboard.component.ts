@@ -1,7 +1,15 @@
 import { Component } from '@angular/core';
+import { DashboardDataService } from './dashboard-data.service';
 
 @Component({
   selector: 'literate-robot-dashboard',
   templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent {}
+export class DashboardComponent {
+  constructor(private dashboardDataService: DashboardDataService) {}
+
+  fetchData() {
+    return this.dashboardDataService.fetchData();
+  }
+}

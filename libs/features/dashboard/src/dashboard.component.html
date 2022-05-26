@@ -1,3 +1,5 @@
 <p>dashboard works!</p>
 
-<literate-robot-dashboard-table></literate-robot-dashboard-table>
+<literate-robot-dashboard-table
+  [data]="fetchData() | async"
+></literate-robot-dashboard-table>
