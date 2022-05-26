@@ -1,0 +1,25 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/features/dashboard/src",
+  "prefix": "literate-robot",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/features/dashboard"],
+      "options": {
+        "jestConfig": "libs/features/dashboard/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/features/dashboard/**/*.ts",
+          "libs/features/dashboard/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

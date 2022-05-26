@@ -16,6 +16,9 @@
     "baseUrl": ".",
     "paths": {
       "@literate-robot/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@literate-robot/features/dashboard": [
+        "libs/features/dashboard/src/index.ts"
+      ],
       "@literate-robot/shared/ng/common": [
         "libs/shared/ng/common/src/index.ts"
       ],

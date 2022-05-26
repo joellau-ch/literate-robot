@@ -4,6 +4,7 @@
   "projects": {
     "api": "apps/api",
     "api-interfaces": "libs/api-interfaces",
+    "features-dashboard": "libs/features/dashboard",
     "literate-robot": "apps/literate-robot",
     "literate-robot-e2e": "apps/literate-robot-e2e",
     "shared-ng-common": "libs/shared/ng/common",
