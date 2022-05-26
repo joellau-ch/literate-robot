@@ -15,7 +15,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@literate-robot/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@literate-robot/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@literate-robot/shared/ng/common": [
+        "libs/shared/ng/common/src/index.ts"
+      ],
+      "@literate-robot/shared/ng/core": ["libs/shared/ng/core/src/index.ts"],
+      "@literate-robot/shared/ng/shared": ["libs/shared/ng/shared/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

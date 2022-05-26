@@ -1,0 +1,25 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/shared/ng/core/src",
+  "prefix": "literate-robot",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/ng/core"],
+      "options": {
+        "jestConfig": "libs/shared/ng/core/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/ng/core/**/*.ts",
+          "libs/shared/ng/core/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
