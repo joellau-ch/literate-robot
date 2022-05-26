@@ -1,5 +1,17 @@
-<h1>Warehouse Flows</h1>
+<header>
+  <h1>Warehouse Flows</h1>
+</header>
 
-<literate-robot-dashboard-table
-  [data]="fetchData() | async"
-></literate-robot-dashboard-table>
+<main>
+  <div class="card">
+    <literate-robot-dashboard-derived
+      [data]="fetchData() | async"
+    ></literate-robot-dashboard-derived>
+  </div>
+
+  <div class="card">
+    <literate-robot-dashboard-table
+      [data]="fetchData() | async"
+    ></literate-robot-dashboard-table>
+  </div>
+</main>
