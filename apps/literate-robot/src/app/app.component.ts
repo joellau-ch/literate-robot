@@ -5,7 +5,6 @@ import { Message } from '@literate-robot/api-interfaces';
 @Component({
   selector: 'literate-robot-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   hello$ = this.http.get<Message>('/api/hello');
