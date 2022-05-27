@@ -1,32 +1,42 @@
 <table>
   <tbody>
     <tr>
-      <td class="bold">Date</td>
-      <td>26th May 2022</td>
+      <td class="font-bold text-gray-900">Date</td>
+      <td class="text-right">{{ today | date: 'yyyy-MM-dd' }}</td>
     </tr>
     <tr>
-      <td class="bold">Exposure (USD)</td>
-      <td>$-543,121.40</td>
+      <td class="font-bold text-gray-900">Exposure (USD)</td>
+      <td class="text-right">
+        {{ -543121.4 | currency: '':'symbol':'0.2-2':'en-SG' }}
+      </td>
     </tr>
     <tr>
-      <td class="bold">Exposure (SGD)</td>
-      <td>$758,924.69</td>
+      <td class="font-bold text-gray-900">Exposure (SGD)</td>
+      <td class="text-right">
+        {{ 758924.69 | currency: '':'symbol':'0.2-2':'en-SG' }}
+      </td>
     </tr>
     <tr>
-      <td class="bold">PnL</td>
-      <td>$836.34</td>
+      <td class="font-bold text-gray-900">PnL</td>
+      <td class="text-right">
+        {{ 836.34 | currency: '':'symbol':'0.2-2':'en-SG' }}
+      </td>
     </tr>
     <tr>
-      <td class="bold">Average Sell</td>
-      <td>1.3782</td>
+      <td class="font-bold text-gray-900">Average Sell</td>
+      <td class="text-right">
+        {{ 1.3782 | number: '1.4-5':'en-SG' }}
+      </td>
     </tr>
     <tr>
-      <td class="bold">Average Buy</td>
-      <td>1.3725</td>
+      <td class="font-bold text-gray-900">Average Buy</td>
+      <td class="text-right">
+        {{ 1.3725 | number: '1.4-5':'en-SG' }}
+      </td>
     </tr>
     <tr>
-      <td class="bold">Average Rate</td>
-      <td>1.3973</td>
+      <td class="font-bold text-gray-900">Average Rate</td>
+      <td class="text-right">{{ 1.3973 | number: '1.4-5':'en-SG' }}</td>
     </tr>
   </tbody>
 </table>

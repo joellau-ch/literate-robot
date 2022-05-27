@@ -10,7 +10,6 @@ import { DashboardData } from '../dashboard-data.service';
 @Component({
   selector: 'literate-robot-dashboard-table',
   templateUrl: './dashboard-table.component.html',
-  styleUrls: ['./dashboard-table.component.scss'],
 })
 export class DashboardTableComponent {
   @Input() data: DashboardData[] | null;
