@@ -1,5 +1,10 @@
+import { formatCurrency, formatDate } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { GridOptions } from 'ag-grid-community';
+import {
+  GridOptions,
+  GridReadyEvent,
+  ValueFormatterParams,
+} from 'ag-grid-community';
 import { DashboardData } from '../dashboard-data.service';
 
 @Component({
@@ -18,75 +23,84 @@ export class DashboardTableComponent {
 
   getGridOptions(): GridOptions {
     return {
-      defaultColDef: {
-        sortable: true,
-        filter: true,
-      },
       columnDefs: [
         {
           headerName: 'Current Timestamp',
           field: 'currentTimestamp',
           colId: 'currentTimestamp',
           type: 'dateColumn',
+          valueFormatter({ value }: ValueFormatterParams): string {
+            return formatDate(value, 'yyyy-MM-dd HH:mm:ss z', 'en-SG');
+          },
         },
         {
           headerName: 'Created At',
           field: 'createdAt',
           colId: 'createdAt',
           type: 'dateColumn',
+          valueFormatter({ value }: ValueFormatterParams): string {
+            return formatDate(value, 'HH:mm:ss z', 'en-SG');
+          },
         },
         {
           headerName: 'Customer Direction',
           field: 'customerDirection',
           colId: 'customerDirection',
-          filter: 'agNumberColumnFilter',
         },
         {
           headerName: 'CH Direction',
           field: 'coinhakoDirection',
           colId: 'coinhakoDirection',
-          filter: 'agNumberColumnFilter',
         },
         {
           headerName: 'Price',
           field: 'price',
           colId: 'price',
-          filter: 'agNumberColumnFilter',
+          type: 'numericColumn',
+          valueFormatter({ value }: ValueFormatterParams): string {
+            return formatCurrency(value, 'en-SG', '', 'USD', `0.9-9`);
+          },
         },
         {
           headerName: 'Counter',
           field: 'counter',
           colId: 'counter',
-          filter: 'agNumberColumnFilter',
         },
         {
           headerName: 'USD',
           field: 'usd',
           colId: 'usd',
-          filter: 'agNumberColumnFilter',
+          type: 'numericColumn',
+          valueFormatter({ value }: ValueFormatterParams): string {
+            return formatCurrency(value, 'en-SG', '$', 'USD', `0.2-2`);
+          },
         },
         {
           headerName: 'SGD Amount',
           field: 'sgdAmount',
           colId: 'sgdAmount',
-          filter: 'agNumberColumnFilter',
+          type: 'numericColumn',
+          valueFormatter({ value }: ValueFormatterParams): string {
+            return formatCurrency(value, 'en-SG', '$', 'SGD', `0.2-2`);
+          },
         },
         {
           headerName: 'Running PnL',
           field: 'runningPnL',
           colId: 'runningPnL',
-          filter: 'agNumberColumnFilter',
+          type: 'numericColumn',
+          valueFormatter({ value }: ValueFormatterParams): string {
+            return formatCurrency(value, 'en-SG', '$', 'SGD', `0.2-2`);
+          },
         },
         {
           headerName: 'Average Rate',
           field: 'averageRate',
           colId: 'averageRate',
-          filter: 'agNumberColumnFilter',
-        },
-        {
-          headerName: 'Check',
-          field: 'check',
-          colId: 'check',
+          type: 'numericColumn',
+          valueFormatter({ value }: ValueFormatterParams): string {
+            return formatCurrency(value, 'en-SG', '', 'USD', `0.7-7`);
+          },
         },
       ],
       columnTypes: {
@@ -94,6 +108,14 @@ export class DashboardTableComponent {
           filter: 'agDateColumnFilter',
           suppressMenu: true,
         },
+      },
+      defaultColDef: {
+        sortable: true,
+        filter: true,
+        resizable: true,
+      },
+      onGridReady({ columnApi }: GridReadyEvent): void {
+        columnApi.autoSizeAllColumns();
       },
     };
   }
