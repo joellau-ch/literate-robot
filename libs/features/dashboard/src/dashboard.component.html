@@ -14,7 +14,68 @@
   <div
     class="bg-white shadow overflow-hidden border-t rounded-lg border-gray-200 px-4 py-4 flex flex-col gap-y-4"
   >
-    <h2 class="text-xl font-bold leading-7 text-gray-700">Trades</h2>
+    <header class="flex flex-row items-baseline justify-between">
+      <h2 class="text-xl font-bold leading-7 text-gray-700">Trades</h2>
+      <div class="flex flex-row items-baseline gap-x-4">
+        <div class="flex flex-row items-baseline gap-x-2">
+          <label
+            class="text-sm font-medium text-gray-700"
+            for="select-pricing-source"
+            >Source:
+          </label>
+          <select
+            id="select-pricing-source"
+            name="select-pricing-source"
+            autocomplete="select-pricing-source"
+            class="mt-1 w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          >
+            <option value="binance" selected>Binance</option>
+            <option value="p2">P2</option>
+          </select>
+        </div>
+        <div class="flex flex-row items-baseline gap-x-2">
+          <label
+            class="text-sm inline-block font-medium text-gray-700"
+            for="input-spread"
+            >Spread:
+          </label>
+          <input
+            type="number"
+            name="input-spread"
+            id="input-spread"
+            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+            placeholder="Spread"
+          />
+        </div>
+        <div class="flex flex-row items-baseline gap-x-2">
+          <label
+            class="text-sm inline-block font-medium text-gray-700"
+            for="input-price-buffer"
+            >Price Buffer:
+          </label>
+          <input
+            type="number"
+            name="input-price-buffer"
+            id="input-price-buffer"
+            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+            placeholder="Price Buffer"
+          />
+        </div>
+        <div class="flex flex-row items-baseline gap-x-2">
+          <label
+            class="text-sm inline-block font-medium text-gray-700"
+            for="input-search"
+            >Search:
+          </label>
+          <input
+            type="text"
+            name="input-search"
+            id="input-search"
+            placeholder="Search"
+          />
+        </div>
+      </div>
+    </header>
     <literate-robot-dashboard-table
       [data]="fetchData() | async"
     ></literate-robot-dashboard-table>
